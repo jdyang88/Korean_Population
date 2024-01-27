@@ -6,14 +6,14 @@ import re
 import matplotlib.pyplot as plt
 
 # Use a pre-installed font by specifying its name
-plt.rc('font', family='Malgun Gothic')  # This assumes 'Malgun Gothic' is available on your system
+plt.rc('font', family='HYPost')  # This assumes 'Malgun Gothic' is available on your system
 
 # Streamlit app title
 st.title('Korean Annual Population')
 
 # Set Korean font for matplotlib in Windows environment
 def set_korean_font():
-    plt.rcParams['font.family'] = 'Malgun Gothic'
+    plt.rcParams['font.family'] = 'HYPost'
     plt.rcParams['axes.unicode_minus'] = False
 
 set_korean_font()
