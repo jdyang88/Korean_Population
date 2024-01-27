@@ -15,7 +15,7 @@ def set_korean_font():
 set_korean_font()
 
 # Load the data with updated caching
-@st.cache_data
+@st.cache
 def load_data():
     data = pd.read_csv('200812_202312_Korean_Annual_Population.csv', encoding='euc-kr')
     return data
