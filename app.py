@@ -4,26 +4,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import re
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
 
-# 한글 폰트 URL
-font_url = "https://github.com/google/fonts/raw/main/ofl/nanumgothic/NanumGothic-Regular.ttf"
-
-# 폰트 로드
-font_path = fm.download_font(font_url, cache_dir='/tmp')
-font_prop = fm.FontProperties(fname=font_path)
-
-plt.rc('font', family=font_prop.get_name())
-
-
-
+# Use a pre-installed font by specifying its name
+plt.rc('font', family='NanumGothic')  # This assumes 'NanumGothic' is available on your system
 
 # Streamlit app title
 st.title('Korean Annual Population')
 
 # Set Korean font for matplotlib in Windows environment
 def set_korean_font():
-    plt.rcParams['font.family'] = 'Malgun Gothic'
+    plt.rcParams['font.family'] = 'NanumGothic'
     plt.rcParams['axes.unicode_minus'] = False
 
 set_korean_font()
