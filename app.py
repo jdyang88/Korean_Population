@@ -6,20 +6,11 @@ import seaborn as sns
 import numpy as np 
 
 
-# # 폰트 적용
-# import matplotlib.font_manager as fm
-# import os
-
-# fpath = os.path.join(os.getcwd(), "streamlit-korean-fonts/NanumGothic-Bold.ttf")
-# prop = fm.FontProperties(fname=fpath)
-
 import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 import os
 
-# 이제 os 모듈의 함수를 사용할 수 있습니다.
-font_path = os.path.join(os.getcwd(), 'streamlit-korean-fonts', 'NanumGothic-Bold.ttf')
-
+font_path = os.path.join('streamlit-korean-fonts', 'NanumGothic-Bold.ttf')
 
 # 폰트 이름 가져오기
 font_name = font_manager.FontProperties(fname=font_path).get_name()
