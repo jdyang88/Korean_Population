@@ -16,8 +16,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 
-# 폰트 경로 설정
-font_path = 'streamlit-korean-fonts/NanumGothic-Regular.ttf'
+# 현재 파일의 위치를 기준으로 폰트 파일의 상대 경로 설정
+font_path = os.path.join(os.getcwd(), 'streamlit-korean-fonts', 'NanumGothic-Bold.ttf')
 
 # 폰트 이름 가져오기
 font_name = font_manager.FontProperties(fname=font_path).get_name()
