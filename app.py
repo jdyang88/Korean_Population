@@ -17,14 +17,16 @@ import os
 # else:
 #     print("Font file not found: ", font_path)
 
-# 폰트 경로 설정
-font_path = './streamlit-korean-fonts/NanumGothic.ttf'
+# Build the path to the font file relative to the script location
+script_dir = os.path.dirname(__file__)  # Get the directory where the script is located
+font_path = os.path.join(script_dir, 'streamlit-korean-fonts', 'NanumGothic.ttf')  # Build the path to the font file
 
-# 폰트 이름 가져오기
-font_name = fm.FontProperties(fname=font_path).get_name()
-
-# Matplotlib의 폰트를 NanumGothic으로 설정
-plt.rc('font', family=font_name)
+# Add the font to Matplotlib's font manager
+if os.path.exists(font_path):
+    fm.fontManager.addfont(font_path)  # Add the font to the font manager
+    plt.rc('font', family='NanumGothic')  # Set the font as the default for all plots
+else:
+    print(f"Font file not found at: {font_path}")
 
 
 
