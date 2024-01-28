@@ -14,7 +14,7 @@ def unique(list):
     x = np.array(list)
     return np.unique(x)
 
-@st.cache_data
+@st.cache
 def fontRegistered():
     font_dirs = [os.getcwd() + '/customFonts']
     font_files = fm.findSystemFonts(fontpaths=font_dirs)
