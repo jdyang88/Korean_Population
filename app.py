@@ -6,17 +6,17 @@ import seaborn as sns
 import numpy as np 
 
 
-import matplotlib.pyplot as plt
-from matplotlib import font_manager, rc
-import os
+# import matplotlib.pyplot as plt
+# from matplotlib import font_manager, rc
+# import os
 
-font_path = os.path.join('streamlit-korean-fonts', 'NanumGothic.ttf')
+# font_path = os.path.join('streamlit-korean-fonts', 'NanumGothic.ttf')
 
-# 폰트 이름 가져오기
-font_name = font_manager.FontProperties(fname=font_path).get_name()
+# # 폰트 이름 가져오기
+# font_name = font_manager.FontProperties(fname=font_path).get_name()
 
-# matplotlib의 rcParams에 폰트 설정
-rc('font', family=font_name)
+# # matplotlib의 rcParams에 폰트 설정
+# rc('font', family=font_name)
 
 
 # Streamlit app title
