@@ -4,31 +4,14 @@ import matplotlib.pyplot as plt
 import re
 import seaborn as sns 
 import numpy as np 
+
+
+# 폰트 적용
 import matplotlib.font_manager as fm
 import os
 
-# # Build the path to the font file
-# font_path = os.path.join(os.getcwd(), '/streamlit-korean-fonts', 'NanumGothic.ttf')
-
-# # Directly add the font to Matplotlib's font manager
-# if os.path.exists(font_path):
-#     fm.fontManager.addfont(font_path)
-#     plt.rc('streamlit-korean-font', family='NanumGothic')
-# else:
-#     print("Font file not found: ", font_path)
-
-# Build the path to the font file relative to the script location
-script_dir = os.path.dirname(__file__)  # Get the directory where the script is located
-font_path = os.path.join(script_dir, 'streamlit-korean-fonts', 'NanumGothic.ttf')  # Build the path to the font file
-
-# Add the font to Matplotlib's font manager
-if os.path.exists(font_path):
-    fm.fontManager.addfont(font_path)  # Add the font to the font manager
-    plt.rc('font', family='NanumGothic')  # Set the font as the default for all plots
-else:
-    print(f"Font file not found at: {font_path}")
-
-
+fpath = os.path.join(os.getcwd(), "streamlit-korean-fonts/NanumGothic-Bold.ttf")
+prop = fm.FontProperties(fname=fpath)
 
 
 # Streamlit app title
@@ -95,13 +78,13 @@ age_groups = [col.split('_')[-1] for col in filtered_data.columns if '세' in co
 age_groups = sorted(set(age_groups), key=sort_age_groups)
 
 # Convert to integers and remove the total population column
-male_data = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(f'{year}년_남_') and '총인구수' not in col]].iloc[0])
-female_data = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(f'{year}년_여_') and '총인구수' not in col]].iloc[0])
+male_data = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(f'{year}년_남_') and '총인구수' not in col]].iloc[0], fontproperties=prop)
+female_data = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(f'{year}년_여_') and '총인구수' not in col]].iloc[0], fontproperties=prop)
 
 # Plotting the age distribution chart for the selected year and region
 fig, ax = plt.subplots()
-ax.barh(age_groups, -male_data.values, color='blue', label=f'Male: {male_data.sum():,}명')
-ax.barh(age_groups, female_data.values, color='red', label=f'Female: {female_data.sum():,}명')
+ax.barh(age_groups, -male_data.values, color='blue', label=f'Male: {male_data.sum():,}명', fontproperties=prop)
+ax.barh(age_groups, female_data.values, color='red', label=f'Female: {female_data.sum():,}명', fontproperties=prop)
 ax.set_xlabel('Population')
 ax.set_title(f'{region} {year} M(Blue) & F(Red) Distribution')
 plt.legend()
@@ -114,8 +97,8 @@ total_female_population_by_year = []
 
 for year in years:
     year_str = f'{year}년'
-    male_sum = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(year_str + '_남_총인구수')]]).sum().sum()
-    female_sum = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(year_str + '_여_총인구수')]]).sum().sum()
+    male_sum = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(year_str + '_남_총인구수')]], fontproperties=prop).sum().sum()
+    female_sum = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(year_str + '_여_총인구수')]], fontproperties=prop).sum().sum()
     total_male_population_by_year.append(male_sum)
     total_female_population_by_year.append(female_sum)
 
