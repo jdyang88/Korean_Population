@@ -8,7 +8,7 @@ import matplotlib.font_manager as fm
 import os
 
 # Build the path to the font file
-font_path = os.path.join(os.getcwd(), 'streamlit-korean-fonts', 'NanumGothic.ttf')
+font_path = os.path.join(os.getcwd(), 'streamlit-korean-fonts', 'NanumGothic-Regular.ttf')
 
 # Directly add the font to Matplotlib's font manager
 if os.path.exists(font_path):
