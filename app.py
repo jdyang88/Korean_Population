@@ -5,15 +5,17 @@ import re
 import seaborn as sns 
 import numpy as np 
 import matplotlib.font_manager as fm
+import os
 
-# 폰트 경로 설정
-font_path = 'NanumGothic.ttf'
+# Build the path to the font file
+font_path = os.path.join(os.getcwd(), 'fonts', 'NanumGothic.ttf')
 
-# 폰트 이름 가져오기
-font_name = fm.FontProperties(fname=font_path).get_name()
-
-# Matplotlib의 폰트를 NanumGothic으로 설정
-plt.rc('font', family=font_name)
+# Directly add the font to Matplotlib's font manager
+if os.path.exists(font_path):
+    fm.fontManager.addfont(font_path)
+    plt.rc('font', family='NanumGothic')
+else:
+    print("Font file not found: ", font_path)
 
 
 
