@@ -6,6 +6,9 @@ import re
 # Streamlit app title
 st.title('Korean Annual Population')
 
+# Displaying the source attribution
+st.markdown('Source: [Statistics Korea](https://jumin.mois.go.kr/ageStatMonth.do)')
+
 # Set Korean font for matplotlib in Windows environment
 def set_korean_font():
     plt.rcParams['font.family'] = 'Malgun Gothic'
