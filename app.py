@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 import os
 
-font_path = os.path.join('streamlit-korean-fonts', 'NanumGothic-Bold.ttf')
+font_path = os.path.join('streamlit-korean-fonts', 'NanumGothic.ttf')
 
 # 폰트 이름 가져오기
 font_name = font_manager.FontProperties(fname=font_path).get_name()
