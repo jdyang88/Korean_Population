@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.font_manager as fm
 
 # 폰트 경로 설정
-font_path = 'NanumGothic-Regular.ttf'
+font_path = 'NanumGothic.ttf'
 
 # 폰트 이름 가져오기
 font_name = fm.FontProperties(fname=font_path).get_name()
