@@ -13,6 +13,18 @@ import numpy as np
 # fpath = os.path.join(os.getcwd(), "streamlit-korean-fonts/NanumGothic-Bold.ttf")
 # prop = fm.FontProperties(fname=fpath)
 
+import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
+
+# 폰트 경로 설정
+font_path = 'streamlit-korean-fonts/NanumGothic-Regular.ttf'
+
+# 폰트 이름 가져오기
+font_name = font_manager.FontProperties(fname=font_path).get_name()
+
+# matplotlib의 rcParams에 폰트 설정
+rc('font', family=font_name)
+
 
 # Streamlit app title
 st.title('Korean Annual Population')
