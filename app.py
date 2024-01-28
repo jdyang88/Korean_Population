@@ -6,12 +6,12 @@ import seaborn as sns
 import numpy as np 
 
 
-# 폰트 적용
-import matplotlib.font_manager as fm
-import os
+# # 폰트 적용
+# import matplotlib.font_manager as fm
+# import os
 
-fpath = os.path.join(os.getcwd(), "streamlit-korean-fonts/NanumGothic-Bold.ttf")
-prop = fm.FontProperties(fname=fpath)
+# fpath = os.path.join(os.getcwd(), "streamlit-korean-fonts/NanumGothic-Bold.ttf")
+# prop = fm.FontProperties(fname=fpath)
 
 
 # Streamlit app title
@@ -78,13 +78,13 @@ age_groups = [col.split('_')[-1] for col in filtered_data.columns if '세' in co
 age_groups = sorted(set(age_groups), key=sort_age_groups)
 
 # Convert to integers and remove the total population column
-male_data = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(f'{year}년_남_') and '총인구수' not in col]].iloc[0], fontproperties=prop)
-female_data = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(f'{year}년_여_') and '총인구수' not in col]].iloc[0], fontproperties=prop)
+male_data = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(f'{year}년_남_') and '총인구수' not in col]].iloc[0])
+female_data = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(f'{year}년_여_') and '총인구수' not in col]].iloc[0])
 
 # Plotting the age distribution chart for the selected year and region
 fig, ax = plt.subplots()
-ax.barh(age_groups, -male_data.values, color='blue', label=f'Male: {male_data.sum():,}명', fontproperties=prop)
-ax.barh(age_groups, female_data.values, color='red', label=f'Female: {female_data.sum():,}명', fontproperties=prop)
+ax.barh(age_groups, -male_data.values, color='blue', label=f'Male: {male_data.sum():,}명')
+ax.barh(age_groups, female_data.values, color='red', label=f'Female: {female_data.sum():,}명')
 ax.set_xlabel('Population')
 ax.set_title(f'{region} {year} M(Blue) & F(Red) Distribution')
 plt.legend()
@@ -97,8 +97,8 @@ total_female_population_by_year = []
 
 for year in years:
     year_str = f'{year}년'
-    male_sum = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(year_str + '_남_총인구수')]], fontproperties=prop).sum().sum()
-    female_sum = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(year_str + '_여_총인구수')]], fontproperties=prop).sum().sum()
+    male_sum = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(year_str + '_남_총인구수')]]).sum().sum()
+    female_sum = to_int(filtered_data[[col for col in filtered_data.columns if col.startswith(year_str + '_여_총인구수')]]).sum().sum()
     total_male_population_by_year.append(male_sum)
     total_female_population_by_year.append(female_sum)
 
