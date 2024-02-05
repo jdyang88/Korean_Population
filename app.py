@@ -26,19 +26,6 @@ st.title('Korean Annual Population')
 st.markdown('Source: [Statistics Korea](https://jumin.mois.go.kr/ageStatMonth.do)')
 
 
-
-
-# Set Korean font for matplotlib in Windows environment
-def set_korean_font():
-    # plt.rcParams['font.family'] = 'Malgun Gothic'
-    plt.rcParams['font.family'] = 'NanumGothic'
-    plt.rcParams['axes.unicode_minus'] = False
-
-set_korean_font()
-
-
-
-
 # Load the data with updated caching
 @st.cache
 def load_data():
