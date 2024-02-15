@@ -2,6 +2,22 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import re
+import seaborn as sns 
+import numpy as np 
+
+
+# import matplotlib.pyplot as plt
+# from matplotlib import font_manager, rc
+# import os
+
+# font_path = os.path.join('streamlit-korean-fonts', 'NanumGothic.ttf')
+
+# # 폰트 이름 가져오기
+# font_name = font_manager.FontProperties(fname=font_path).get_name()
+
+# # matplotlib의 rcParams에 폰트 설정
+# rc('font', family=font_name)
+
 
 # Streamlit app title
 st.title('Korean Annual Population')
@@ -9,16 +25,9 @@ st.title('Korean Annual Population')
 # Displaying the source attribution
 st.markdown('Source: [Statistics Korea](https://jumin.mois.go.kr/ageStatMonth.do)')
 
-# Set Korean font for matplotlib in Windows environment
-def set_korean_font():
-    # plt.rcParams['font.family'] = 'Malgun Gothic'
-    plt.rcParams['font.family'] = 'NanumGothic'
-    plt.rcParams['axes.unicode_minus'] = False
-
-set_korean_font()
 
 # Load the data with updated caching
-@st.cache_data
+@st.cache
 def load_data():
     data = pd.read_csv('200812_202312_Korean_Annual_Population.csv', encoding='euc-kr')
     return data
@@ -114,6 +123,9 @@ ax2.set_ylabel('Total Population')
 ax2.set_title(f'Total Population Change in {region} Over Years')
 ax2.legend()
 st.pyplot(fig2)
+
+
+
 
 
 
