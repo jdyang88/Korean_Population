@@ -18,8 +18,6 @@ import numpy as np
 # # matplotlib의 rcParams에 폰트 설정
 # rc('font', family=font_name)
 
-warnings.filterwarnings('ignore')
-
 # Unicode warning 제거 (폰트 관련 경고메시지)
 plt.rcParams['axes.unicode_minus']=False
 
