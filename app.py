@@ -18,13 +18,6 @@ import numpy as np
 # # matplotlib의 rcParams에 폰트 설정
 # rc('font', family=font_name)
 
-# Unicode warning 제거 (폰트 관련 경고메시지)
-plt.rcParams['axes.unicode_minus']=False
-
-# 한글 폰트 설정
-plt.rcParams['font.family'] = "NanumGothic"
-
-
 
 # Streamlit app title
 st.title('Korean Annual Population')
