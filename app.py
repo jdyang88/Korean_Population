@@ -29,7 +29,7 @@ st.markdown('Source: [Statistics Korea](https://jumin.mois.go.kr/ageStatMonth.do
 # Load the data with updated caching
 @st.cache
 def load_data():
-    data = pd.read_csv('200812_202312_Korean_Annual_Population.csv', encoding='euc-kr')
+    data = pd.read_csv('200812_202412_Korean_Annual_Population.csv', encoding='euc-kr')
     return data
 
 data = load_data()
